@@ -39,7 +39,8 @@ describe('createUser', () => {
       username: 'newuser',
       password: 'hello',
       gardenId: 3,
-      email: 'random@emailz.co'
+      email: 'random@emailz.co',
+      auth0Id: 'auth0|thisisfortesting'
     }
     return users.createUser(user, testDb)
       .then(() => users.getUserByName('newuser', testDb))

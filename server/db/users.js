@@ -17,7 +17,7 @@ function getUserDetailsByGarden (gardenId, db = connection) {
 
 function getUserByName (username, db = connection) {
   return db('users')
-    .select('username', 'is_admin as isAdmin', 'garden_id as gardenId', 'id', 'hash', 'email')
+    .select('username', 'garden_id as gardenId', 'id', 'hash', 'email')
     .where('username', username)
     .first()
 }
@@ -29,7 +29,6 @@ function getUsersByAuth (auth0Id, db = connection) {
     .first()
 }
 
-// Needed hasher (perhaps pass in the prehashed password instead)
 function createUser (user, db = connection) {
   return userExists(user.auth0Id, db)
     .then((exists) => {
@@ -38,7 +37,6 @@ function createUser (user, db = connection) {
       }
       return false
     })
-    // Removed the generate hasher wrapping, had transformed text passowrd to has passowrd
     .then(() => {
       return db('users').insert({
         first_name: user.firstName,
