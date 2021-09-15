@@ -36,6 +36,7 @@ Goal: Monitor community garden engagement to determine influence on key wellbein
     1. Merge your commit into the feature branch
     1. Pull the feature branch and verify integration
     1. Add the _actual_ time label to the sub-ticket
+1. Verify the `lint` and `test` scripts pass (Again)
 1. Grab a dev lead to do a code review of the feature branch
 1. Merge into `dev`!
 1. Add the _actual_ time label to the ticket
